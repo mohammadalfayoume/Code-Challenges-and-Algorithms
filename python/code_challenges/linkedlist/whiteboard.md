@@ -1,0 +1,1 @@
+![solution](../../assets/linked-list/white_board.png)
