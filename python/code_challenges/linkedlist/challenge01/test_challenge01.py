@@ -14,6 +14,11 @@ class LinkedList:
         self.tail=None
         self.length=0
     def append(self,value):
+        '''
+        input -> int or string
+
+        return -> None
+        '''
         new_node= Node(value)
         if self.head==None:
             self.head=new_node
@@ -25,12 +30,22 @@ class LinkedList:
         self.length +=1
 
     def get_node(self,value):
+        '''
+        input -> int or string
+
+        return -> object
+        '''
         current=self.head
         while current.value != value:
             current=current.next
         return current
 
     def print_list_of_values(self):
+        '''
+        input -> None
+
+        return -> list
+        '''
         values_in_list=[]
         if self.head==None:
             print("empty linked list")
@@ -44,6 +59,11 @@ class LinkedList:
         return values_in_list
 ####################
     def get_node_from_index(self,idx):
+        '''
+        input -> int
+
+        return -> object
+        '''
         if self.head==None:
             print("Empty LL")
         else:
@@ -55,6 +75,11 @@ class LinkedList:
             return current
     
     def insert_node(self,idx,value):
+        '''
+        input -> int, int or string
+
+        return -> None
+        '''
         new_node= Node(value)
         if idx==0:
             new_node.next=self.head
@@ -67,12 +92,22 @@ class LinkedList:
         self.length +=1
 
     def delete_node(self,idx):
+        '''
+        input -> int
+
+        return -> None
+        '''
         node_to_be_deleted= self.get_node_from_index(idx)
         node_to_be_deleted.value=node_to_be_deleted.next.value
         node_to_be_deleted.next= node_to_be_deleted.next.next
         self.length -=1
 
     def append_by_tail(self,value):
+        '''
+        input -> int or string
+
+        return -> None
+        '''
         new_node= Node(value)
         if self.head == None:
             self.head=new_node
@@ -97,6 +132,11 @@ print(link1.print_list_of_values())
 # print(link1.print_list_of_values())
 
 def test_delete_node_one(one):
+    '''
+        input -> object
+
+        return -> boolean
+        '''
     expected=[4,1,9]
     node_to_delete= link1.get_node(5)
     one.delete_node(node_to_delete)
@@ -112,6 +152,11 @@ link2.append(1)
 link2.append(9)
 
 def test_delete_node_two(one):
+    '''
+        input -> object
+
+        return -> boolean
+        '''
     expected=[4,5,9]
     node_to_delete_02= link2.get_node(1)
     one.delete_node(node_to_delete_02)
@@ -122,5 +167,10 @@ def test_delete_node_two(one):
 ########### Fixture Test ###########
 @pytest.fixture
 def one():
+    '''
+        input -> None
+
+        return -> object
+        '''
     delete_node_method= Solution()
     return delete_node_method

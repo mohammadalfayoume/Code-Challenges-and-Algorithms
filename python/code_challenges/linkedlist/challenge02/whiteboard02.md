@@ -1,0 +1,1 @@
+![white_board](../../../assets/linked-list/2.png)

@@ -1,6 +1,11 @@
 # Write here the code challenge solution
 class Solution:
     def get_middle(self,head):
+        '''
+        input -> object
+
+        return -> list
+        '''
         # 1 => 2 => 3 => 4 => 5
         # 3 => 4 => 5
         nodes=[]
