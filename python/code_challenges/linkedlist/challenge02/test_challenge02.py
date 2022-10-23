@@ -13,6 +13,11 @@ class LinkedList:
         self.length=0
     
     def get_node_from_index(self,idx):
+        '''
+        input -> int
+
+        return -> object
+        '''
         if self.head==None:
             print("Empty LL")
         else:
@@ -25,6 +30,11 @@ class LinkedList:
     
 
     def append_by_tail(self,value):
+        '''
+        input -> int or string
+
+        return -> None
+        '''
         new_node= Node(value)
         if self.head == None:
             self.head=new_node
@@ -58,6 +68,11 @@ link1.append_by_tail(5)
 
 
 def test_get_middle_node_one(one):
+    '''
+        input -> object
+
+        return -> boolean
+        '''
     expected=[3,4,5]
     head= link1.get_node_from_index(0)
     middle_node_values=one.get_middle(head)
@@ -75,6 +90,11 @@ link2.append_by_tail(6)
 
 
 def test_get_middle_node_two(one):
+    '''
+        input -> object
+
+        return -> boolean
+        '''
     expected=[4,5,6]
     head= link2.get_node_from_index(0)
     middle_node_values=one.get_middle(head)
@@ -83,5 +103,10 @@ def test_get_middle_node_two(one):
 
 @pytest.fixture
 def one():
+    '''
+        input -> None
+
+        return -> object
+        '''
     get_middle= Solution()
     return get_middle
