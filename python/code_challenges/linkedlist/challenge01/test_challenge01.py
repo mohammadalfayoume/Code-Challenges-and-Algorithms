@@ -11,6 +11,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head=None
+        self.tail=None
         self.length=0
     def append(self,value):
         new_node= Node(value)
@@ -41,13 +42,59 @@ class LinkedList:
                 current=current.next
             print(self.length)
         return values_in_list
+####################
+    def get_node_from_index(self,idx):
+        if self.head==None:
+            print("Empty LL")
+        else:
+            current= self.head
+            counter=0
+            while counter != idx:
+                current = current.next
+                counter +=1
+            return current
+    
+    def insert_node(self,idx,value):
+        new_node= Node(value)
+        if idx==0:
+            new_node.next=self.head
+            self.head=new_node
+        else:
+            next_node= self.get_node_from_index(idx)
+            new_node.next=next_node
+            prev_node= self.get_node_from_index(idx-1)
+            prev_node.next=new_node
+        self.length +=1
+
+    def delete_node(self,idx):
+        node_to_be_deleted= self.get_node_from_index(idx)
+        node_to_be_deleted.value=node_to_be_deleted.next.value
+        node_to_be_deleted.next= node_to_be_deleted.next.next
+        self.length -=1
+
+    def append_by_tail(self,value):
+        new_node= Node(value)
+        if self.head == None:
+            self.head=new_node
+            self.tail=self.head
+        else:
+            current=self.tail
+            current.next=new_node
+            self.tail=new_node
+####################
 
 ########### Test 01 ###########
 link1= LinkedList()
-link1.append(4)
-link1.append(5)
-link1.append(1)
-link1.append(9)
+link1.append_by_tail(4)
+link1.append_by_tail(5)
+link1.append_by_tail(1)
+link1.append_by_tail(9)
+
+# print(link1.get_node_from_index(3))
+print(link1.print_list_of_values())
+# link1.delete_node(3)
+# link1.insert_node(0,8)
+# print(link1.print_list_of_values())
 
 def test_delete_node_one(one):
     expected=[4,1,9]
