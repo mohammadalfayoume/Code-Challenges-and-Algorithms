@@ -1,5 +1,4 @@
 # Write your test here
-import pytest
 from challenge03 import LinkedList
 
 ########### Test 01 ###########
@@ -13,9 +12,10 @@ link1.append_by_tail(5)
 link1.removeNthFromEnd(2)
 result= link1.print_list_of_values()
 
-def test_get_middle_node_one():
+def test_delete_one():
     '''
-        input -> object
+    function to test if the actual result equal the expected result
+        input -> None
 
         return -> boolean
         '''
@@ -32,9 +32,10 @@ link2.removeNthFromEnd(1)
 result2= link2.print_list_of_values()
 
 
-def test_get_middle_node_two():
+def test_delete_two():
     '''
-        input -> object
+    function to test if the actual result equal the expected result
+        input -> None
 
         return -> boolean
         '''
@@ -51,9 +52,10 @@ link3.append_by_tail(2)
 link3.removeNthFromEnd(1)
 result3= link3.print_list_of_values()
 
-def test_get_middle_node_three():
+def test_delete_three():
     '''
-        input -> object
+    function to test if the actual result equal the expected result
+        input -> None
 
         return -> boolean
         '''
