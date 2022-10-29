@@ -8,17 +8,17 @@ link1.append_by_tail(4)
 link1.append_by_tail(5)
 link1.append_by_tail(1)
 link1.append_by_tail(9)
-
+print(link1)
 def test_delete_node_one(one):
     '''
         input -> object
 
         return -> boolean
         '''
-    expected=[4,1,9]
+    expected="4 => 1 => 9 => None"
     node_to_delete= link1.get_node(5)
     one.delete_node(node_to_delete)
-    list_after_deleted_node= link1.print_list_of_values()
+    list_after_deleted_node= link1.__str__()
     actual= list_after_deleted_node
     assert actual==expected
 
@@ -35,10 +35,10 @@ def test_delete_node_two(one):
 
         return -> boolean
         '''
-    expected=[4,5,9]
+    expected="4 => 5 => 9 => None"
     node_to_delete_02= link2.get_node(1)
     one.delete_node(node_to_delete_02)
-    list_after_deleted_node= link2.print_list_of_values()
+    list_after_deleted_node= link2.__str__()
     actual= list_after_deleted_node
     assert actual==expected
 
