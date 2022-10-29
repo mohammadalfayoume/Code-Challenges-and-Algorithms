@@ -35,37 +35,42 @@ class LinkedList:
             current=current.next
         return current
 
-    def print_list_of_values(self):
+    def __str__(self):
         '''
         input -> None
 
         return -> list
         '''
-        values_in_list=[]
+        values_in_list=""
         if self.head==None:
             print("empty linked list")
         else:
             current=self.head
             while current != None:
                 # print(current.value)
-                values_in_list.append(current.value)
+                if current.next==None:
+                    values_in_list += f" => {current.value}"
+                    values_in_list += f" => {current.next}"
+                else:
+                    values_in_list += f" => {current.value}"
                 current=current.next
-            print(self.length)
+            # print(self.length)
+        values_in_list= values_in_list[4:]
         return values_in_list
-    def __str__(self,node):
-        '''
-        input -> None
+    # def __str__(self,node):
+    #     '''
+    #     input -> None
 
-        return -> list
-        '''
-        if self.head==None:
-            print("empty linked list")
-        else:
-            current=self.head
-            while current != node:
-                current=current.next
-            print(self.length)
-        return current
+    #     return -> list
+    #     '''
+    #     if self.head==None:
+    #         print("empty linked list")
+    #     else:
+    #         current=self.head
+    #         while current != node:
+    #             current=current.next
+    #         print(self.length)
+    #     return current
 ####################
     def get_node_from_index(self,idx):
         '''
