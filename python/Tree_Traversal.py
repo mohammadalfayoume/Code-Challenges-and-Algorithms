@@ -82,21 +82,38 @@ class TreeTraversal:
         traverse(self.root)
         return tree
     
-    def tree(self):
-        self.root=self.DFS_preorder()[0]
+    def dfs_inorder(self):
+        t=[]
+        root=self.root
+        def traversal(root):
+            if root.left != None:
+                traversal(root.left)
+            t.append(root.value)
+            if root.right != None:
+                traversal(root.right)
+        traversal(root)
+        return t
+            
+            
         
             
     
 tree=TreeTraversal()
-tree.insert(10)
+# tree.insert(10)
+# tree.insert(5)
+# tree.insert(13)
+# tree.insert(11)
+# tree.insert(2)
+# tree.insert(16)
+# tree.insert(7)
 tree.insert(5)
-tree.insert(13)
-tree.insert(11)
-tree.insert(2)
-tree.insert(16)
-tree.insert(7)
+tree.insert(1)
+tree.insert(4)
+tree.insert(3)
+tree.insert(6)
 
 print(tree.BFS())
-print(tree.DFS_preorder())
-print(tree.DFS_postorder())
-print(tree.DFS_inorder())
+# print(tree.DFS_preorder())
+# print(tree.DFS_postorder())
+# print(tree.DFS_inorder())
+print(tree.dfs_inorder())
