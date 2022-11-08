@@ -70,8 +70,5 @@ class Tree:
         return tree
     
 # tree=Tree()
-# tree.root=tree.buildTree([3,9,20,15,7],[9,3,15,20,7])
+# tree.root=tree.buildTree([5,1,8,4,10],[1,5,4,8,10])
 # print(tree.BFS())
-    
-    
-    
