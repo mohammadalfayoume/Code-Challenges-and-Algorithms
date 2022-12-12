@@ -28,6 +28,7 @@ class BST:
                 root.right=node
                 return
         helper(self.root)
+        
     
     def BFS(self):
         tree=[]
@@ -45,33 +46,30 @@ class BST:
         return tree
     
     def sum_two(self,k):
-        inorder=[]
-        def dfs(root):
-            if root.left:
-                dfs(root.left)
-            inorder.append(root.val)
-            if root.right:
-                dfs(root.right)
-        dfs(self.root)
-        i=0
-        j=len(inorder)-1
-        while i<j:
-            summ=inorder[i]+inorder[j]
-            if summ == k:
+        dic={}
+        def dfs(root,k):
+            if root.val not in dic:
+                dic[root.val]=root.val   
+            if k-root.val in dic and k-root.val != root.val:
                 return True
-            elif summ > k:
-                j-=1
+            if root.left and root.right:
+                return dfs(root.left,k) or dfs(root.right,k)
+            elif root.left:
+                return dfs(root.left,k)
+            elif root.right:
+                return dfs(root.right,k)
             else:
-                i+=1
-        return False
+                return False
+        return dfs(self.root,k)
 
 # tree= BST()
+# root=tree.root
 # tree.insert(10)
 # tree.insert(8)
 # tree.insert(6)
 # tree.insert(15)
 
-# print(tree.sum_two(21))
+# print(tree.sum_two(14))
 
 # print(tree.BFS())
 
