@@ -40,7 +40,7 @@ class Graph:
             result.append(vertex)
             for neighbor in self.adjacencyList[vertex]:
                 if neighbor not in visited or not visited[neighbor]:
-                    return dfs(neighbor)
+                    dfs(neighbor)
         dfs(start)
         print(visited)
         return result
@@ -56,7 +56,7 @@ class Graph:
             result.append(currentVertex)
             
             for neighbor in self.adjacencyList[currentVertex]:
-                if neighbor not in visited or not visited[neighbor]:
+                if neighbor not in visited:
                     visited[neighbor]=True
                     queue.append(neighbor)
         return result
